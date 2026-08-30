@@ -1,0 +1,1 @@
+function confirmarVenta(){if(confirm("¿Confirmar la venta?")){alert("Venta lista para ser registrada por el Servlet");}}

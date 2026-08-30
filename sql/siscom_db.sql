@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS siscom_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE siscom_db;
+CREATE TABLE usuario(id_usuario INT AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(100) NOT NULL,correo VARCHAR(120) NOT NULL UNIQUE,clave_hash CHAR(64) NOT NULL,rol VARCHAR(30) NOT NULL,estado TINYINT(1) DEFAULT 1);
+CREATE TABLE cliente(id_cliente INT AUTO_INCREMENT PRIMARY KEY,documento VARCHAR(15) NOT NULL UNIQUE,nombre VARCHAR(120) NOT NULL,telefono VARCHAR(20),correo VARCHAR(120));
+CREATE TABLE categoria(id_categoria INT AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(80) NOT NULL UNIQUE);
+CREATE TABLE producto(id_producto INT AUTO_INCREMENT PRIMARY KEY,id_categoria INT NOT NULL,codigo VARCHAR(30) NOT NULL UNIQUE,nombre VARCHAR(120) NOT NULL,precio DECIMAL(10,2) NOT NULL,stock INT NOT NULL DEFAULT 0,stock_min INT NOT NULL DEFAULT 5,estado TINYINT(1) DEFAULT 1,FOREIGN KEY(id_categoria) REFERENCES categoria(id_categoria));
+CREATE TABLE venta(id_venta INT AUTO_INCREMENT PRIMARY KEY,id_cliente INT,id_usuario INT NOT NULL,fecha DATETIME DEFAULT CURRENT_TIMESTAMP,subtotal DECIMAL(10,2) NOT NULL,igv DECIMAL(10,2) NOT NULL,total DECIMAL(10,2) NOT NULL,estado VARCHAR(20) DEFAULT 'EMITIDA',FOREIGN KEY(id_cliente) REFERENCES cliente(id_cliente),FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario));
+CREATE TABLE detalle_venta(id_detalle INT AUTO_INCREMENT PRIMARY KEY,id_venta INT NOT NULL,id_producto INT NOT NULL,cantidad INT NOT NULL,precio_unitario DECIMAL(10,2) NOT NULL,subtotal DECIMAL(10,2) NOT NULL,FOREIGN KEY(id_venta) REFERENCES venta(id_venta),FOREIGN KEY(id_producto) REFERENCES producto(id_producto));
+CREATE TABLE movimiento_inventario(id_movimiento INT AUTO_INCREMENT PRIMARY KEY,id_producto INT NOT NULL,id_usuario INT NOT NULL,tipo ENUM('ENTRADA','SALIDA','AJUSTE') NOT NULL,cantidad INT NOT NULL,fecha DATETIME DEFAULT CURRENT_TIMESTAMP,motivo VARCHAR(200),FOREIGN KEY(id_producto) REFERENCES producto(id_producto),FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario));
+INSERT INTO usuario(nombre,correo,clave_hash,rol) VALUES('Administrador','admin@siscom.pe',SHA2('admin123',256),'ADMIN');
+INSERT INTO categoria(nombre) VALUES('Laptops'),('Accesorios'),('Monitores'),('Almacenamiento');
+INSERT INTO producto(id_categoria,codigo,nombre,precio,stock,stock_min) VALUES(1,'P001','Laptop Pro 14',3299,18,5),(2,'P002','Mouse Air',79,3,8),(3,'P003','Monitor IPS 24',649,12,4),(4,'P004','SSD 1 TB',329,5,6),(2,'P005','Teclado K87',219,22,7);
