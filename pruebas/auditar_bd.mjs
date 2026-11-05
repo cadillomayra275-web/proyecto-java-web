@@ -1,0 +1,10 @@
+import {spawnSync} from 'node:child_process';
+import fs from 'node:fs/promises';
+const sep=process.platform==='win32'?';':':';
+await fs.mkdir('pruebas/clases',{recursive:true});
+const cp=['bin/siscom.jar',...(await fs.readdir('lib')).filter(x=>x.endsWith('.jar')).map(x=>'lib/'+x)].join(sep);
+const compilador=spawnSync('javac',['-version'],{stdio:'ignore'}).status===0;
+const c=compilador?spawnSync('javac',['-source','8','-target','8','-encoding','UTF-8','-cp',cp,'-d','pruebas/clases','pruebas/Auditoria_bd.java'],{stdio:'inherit'}):spawnSync('java',['-m','jdk.compiler/com.sun.tools.javac.Main','--release','8','-encoding','UTF-8','-cp',cp,'-d','pruebas/clases','pruebas/Auditoria_bd.java'],{stdio:'inherit'});
+if(c.status!==0)process.exit(c.status||1);
+const r=spawnSync('java',['-cp','pruebas/clases'+sep+cp,'Auditoria_bd'],{stdio:'inherit'});
+process.exitCode=r.status||0;

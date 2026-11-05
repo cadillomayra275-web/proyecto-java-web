@@ -1,0 +1,11 @@
+datos/
+respaldos/
+bin/classes/
+.env
+config/privado.properties
+*.log
+node_modules/
+pruebas/datos/
+pruebas/restauracion/
+pruebas/auditoria-*/
+pruebas/clases/

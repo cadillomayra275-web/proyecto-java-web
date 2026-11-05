@@ -1,0 +1,573 @@
+{
+  "info": {
+    "_postman_id": "46cd8fd6-970d-4ec3-9478-7b3080e0c0f5",
+    "name": "SISCOM APF3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Salud",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ingreso",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"correo\": \"admin@siscom.local\",\n  \"clave\": \"Siscom2026!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));",
+              "if (pm.response.code === 200) pm.collectionVariables.set(\"token\", pm.response.json().token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mi cuenta",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/auth/me"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/productos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categorias",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/categorias"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/clientes"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ventas",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/ventas"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nueva venta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "{{$guid}}"
+          }
+        ],
+        "url": "{{base_url}}/ventas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cliente_id\": 1,\n  \"items\": [\n    {\n      \"producto_id\": 2,\n      \"cantidad\": 1\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Movimientos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/movimientos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nueva entrada",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/movimientos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"producto_id\": 4,\n  \"cantidad\": 5,\n  \"motivo\": \"Reposicion del catalogo\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Resumen",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/dashboard"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reportes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/reportes/ventas?desde=2026-01-01&hasta=2026-12-31"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conciliacion",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/conciliacion"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "RFC",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/cambios"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Detalle RFC",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/cambios/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nueva RFC",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/cambios",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Actualizar imagenes del catalogo\",\n  \"tipo\": \"ESTANDAR\",\n  \"componente\": \"APLICACION\",\n  \"justificacion\": \"Mejorar la identificacion de los productos del catalogo\",\n  \"impacto\": 1,\n  \"probabilidad\": 1,\n  \"plan_pruebas\": \"Validar imagenes catalogo login y venta\",\n  \"plan_reversion\": \"Restaurar los archivos de la version anterior\",\n  \"version_objetivo\": \"3.0.1\",\n  \"enlace_issue\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Evaluacion RFC",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/cambios/1/transicion",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"estado\": \"EVALUACION\",\n  \"nota\": \"Revisar alcance pruebas y plan de reversion\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bitacora",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/bitacora"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "{{base_url}}/usuarios"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cierre de sesion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/auth/logout",
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Respuesta sin error interno\", () => pm.expect(pm.response.code).to.be.below(500));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

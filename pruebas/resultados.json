@@ -1,0 +1,250 @@
+{
+  "fecha": "2026-10-21T18:59:13.074Z",
+  "entorno": "http://127.0.0.1:18080/api",
+  "java_objetivo": "8 o superior",
+  "pruebas": 40,
+  "aprobadas": 40,
+  "resultados": [
+    {
+      "id": "CP01",
+      "nombre": "Salud del servicio",
+      "resultado": "APROBADO",
+      "duracion_ms": 249
+    },
+    {
+      "id": "CP02",
+      "nombre": "Proteccion sin token",
+      "resultado": "APROBADO",
+      "duracion_ms": 262
+    },
+    {
+      "id": "CP03",
+      "nombre": "Rechazo de clave incorrecta",
+      "resultado": "APROBADO",
+      "duracion_ms": 756
+    },
+    {
+      "id": "CP04",
+      "nombre": "Rechazo de inyeccion SQL en login",
+      "resultado": "APROBADO",
+      "duracion_ms": 777
+    },
+    {
+      "id": "CP05",
+      "nombre": "Login de cuatro roles y JWT de 15 minutos",
+      "resultado": "APROBADO",
+      "duracion_ms": 3040
+    },
+    {
+      "id": "CP06",
+      "nombre": "Vendedor sin acceso a usuarios",
+      "resultado": "APROBADO",
+      "duracion_ms": 237
+    },
+    {
+      "id": "CP07",
+      "nombre": "Almacen sin acceso a ventas",
+      "resultado": "APROBADO",
+      "duracion_ms": 230
+    },
+    {
+      "id": "CP08",
+      "nombre": "Supervisor no modifica catalogo",
+      "resultado": "APROBADO",
+      "duracion_ms": 233
+    },
+    {
+      "id": "CP09",
+      "nombre": "Alta y duplicidad de categoria",
+      "resultado": "APROBADO",
+      "duracion_ms": 482
+    },
+    {
+      "id": "CP10",
+      "nombre": "Alta y validacion de cliente",
+      "resultado": "APROBADO",
+      "duracion_ms": 484
+    },
+    {
+      "id": "CP11",
+      "nombre": "Alta de producto y precio invalido",
+      "resultado": "APROBADO",
+      "duracion_ms": 478
+    },
+    {
+      "id": "CP12",
+      "nombre": "Entrada con trazabilidad de stock",
+      "resultado": "APROBADO",
+      "duracion_ms": 238
+    },
+    {
+      "id": "CP13",
+      "nombre": "Venta calculada en servidor",
+      "resultado": "APROBADO",
+      "duracion_ms": 552
+    },
+    {
+      "id": "CP14",
+      "nombre": "Reintento idempotente sin segundo descuento",
+      "resultado": "APROBADO",
+      "duracion_ms": 484
+    },
+    {
+      "id": "CP15",
+      "nombre": "Rechazo de clave con contenido diferente",
+      "resultado": "APROBADO",
+      "duracion_ms": 223
+    },
+    {
+      "id": "CP16",
+      "nombre": "Cantidad cero rechazada",
+      "resultado": "APROBADO",
+      "duracion_ms": 218
+    },
+    {
+      "id": "CP17",
+      "nombre": "Sobreventa rechazada sin cambiar stock",
+      "resultado": "APROBADO",
+      "duracion_ms": 468
+    },
+    {
+      "id": "CP18",
+      "nombre": "Concurrencia sobre la ultima unidad",
+      "resultado": "APROBADO",
+      "duracion_ms": 928
+    },
+    {
+      "id": "CP19",
+      "nombre": "Vendedor no accede a venta ajena",
+      "resultado": "APROBADO",
+      "duracion_ms": 599
+    },
+    {
+      "id": "CP20",
+      "nombre": "Conciliacion de stock y ventas",
+      "resultado": "APROBADO",
+      "duracion_ms": 245
+    },
+    {
+      "id": "CP21",
+      "nombre": "Identificador mal formado e inexistente",
+      "resultado": "APROBADO",
+      "duracion_ms": 459
+    },
+    {
+      "id": "CP22",
+      "nombre": "Rechazo de firma JWT alterada",
+      "resultado": "APROBADO",
+      "duracion_ms": 225
+    },
+    {
+      "id": "CP23",
+      "nombre": "Persistencia de texto potencialmente XSS",
+      "resultado": "APROBADO",
+      "duracion_ms": 227
+    },
+    {
+      "id": "CP24",
+      "nombre": "RFC con riesgo calculado y evento inicial",
+      "resultado": "APROBADO",
+      "duracion_ms": 231
+    },
+    {
+      "id": "CP25",
+      "nombre": "Cambio estandar no admite riesgo alto",
+      "resultado": "APROBADO",
+      "duracion_ms": 223
+    },
+    {
+      "id": "CP26",
+      "nombre": "No se permite saltar a despliegue",
+      "resultado": "APROBADO",
+      "duracion_ms": 227
+    },
+    {
+      "id": "CP27",
+      "nombre": "Segregacion del solicitante y aprobador",
+      "resultado": "APROBADO",
+      "duracion_ms": 453
+    },
+    {
+      "id": "CP28",
+      "nombre": "Aprobacion normal y entrada a pruebas",
+      "resultado": "APROBADO",
+      "duracion_ms": 447
+    },
+    {
+      "id": "CP29",
+      "nombre": "QA requiere evidencia respaldo SHA y ventana",
+      "resultado": "APROBADO",
+      "duracion_ms": 484
+    },
+    {
+      "id": "CP30",
+      "nombre": "Despliegue autorizado y cierre supervisado",
+      "resultado": "APROBADO",
+      "duracion_ms": 986
+    },
+    {
+      "id": "CP31",
+      "nombre": "Emergencia reservada a autoridad administrativa",
+      "resultado": "APROBADO",
+      "duracion_ms": 894
+    },
+    {
+      "id": "CP32",
+      "nombre": "Vendedor sin permiso para transiciones",
+      "resultado": "APROBADO",
+      "duracion_ms": 226
+    },
+    {
+      "id": "CP33",
+      "nombre": "Reporte por periodo y fechas invalidas",
+      "resultado": "APROBADO",
+      "duracion_ms": 448
+    },
+    {
+      "id": "CP34",
+      "nombre": "Bitacora registra operaciones y autor",
+      "resultado": "APROBADO",
+      "duracion_ms": 220
+    },
+    {
+      "id": "CP35",
+      "nombre": "Logout revoca JWT inmediatamente",
+      "resultado": "APROBADO",
+      "duracion_ms": 437
+    },
+    {
+      "id": "CP36",
+      "nombre": "Ajuste negativo protegido",
+      "resultado": "APROBADO",
+      "duracion_ms": 222
+    },
+    {
+      "id": "CP37",
+      "nombre": "Proteccion de la cuenta administrativa propia",
+      "resultado": "APROBADO",
+      "duracion_ms": 461
+    },
+    {
+      "id": "CP38",
+      "nombre": "Rollback integral ante fallo antes del commit",
+      "resultado": "APROBADO",
+      "duracion_ms": 1316
+    },
+    {
+      "id": "CP39",
+      "nombre": "JWT firmado pero expirado rechazado",
+      "resultado": "APROBADO",
+      "duracion_ms": 223
+    },
+    {
+      "id": "CP40",
+      "nombre": "Clave superior a 72 bytes rechazada",
+      "resultado": "APROBADO",
+      "duracion_ms": 215
+    }
+  ],
+  "jar_sha256": "3c3f1aecd6fa3e098f7c76c143c887471a6e80e8e79d861a314ba97e6f379eb7"
+}

@@ -10,5 +10,5 @@ Proyecto sin Maven. Preparado como base académica para NetBeans 8.2 + GlassFish
 5. Seleccionar GlassFish Server 4.1.1 y Java 8.
 6. Ejecutar y abrir /SISCOM_Web_JavaEE/.
 
-Usuario de demostración creado por el script SQL: admin@siscom.pe / admin123
-Para producción se debe reemplazar el almacenamiento de contraseña por BCrypt o PBKDF2.
+*Usuario de demostración creado por el script SQL: admin@siscom.pe / admin123
+*Para producción se debe reemplazar el almacenamiento de contraseña por BCrypt o PBKDF2.

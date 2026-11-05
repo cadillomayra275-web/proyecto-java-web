@@ -1,0 +1,93 @@
+{
+  "fecha": "2026-10-21T18:59:12.838Z",
+  "entorno": "Java 17 y H2 local aislado",
+  "jar_sha256": "3c3f1aecd6fa3e098f7c76c143c887471a6e80e8e79d861a314ba97e6f379eb7",
+  "pruebas": 14,
+  "aprobadas": 14,
+  "resultados": [
+    {
+      "id": "AU01",
+      "nombre": "Booleano estructurado rechazado sin error interno",
+      "resultado": "APROBADO",
+      "duracion_ms": 256
+    },
+    {
+      "id": "AU02",
+      "nombre": "Booleano de tipo cadena rechazado sin crear categoria",
+      "resultado": "APROBADO",
+      "duracion_ms": 836
+    },
+    {
+      "id": "AU03",
+      "nombre": "Clave estructurada devuelve validacion controlada",
+      "resultado": "APROBADO",
+      "duracion_ms": 502
+    },
+    {
+      "id": "AU04",
+      "nombre": "Ruta adicional de venta devuelve 404",
+      "resultado": "APROBADO",
+      "duracion_ms": 516
+    },
+    {
+      "id": "AU05",
+      "nombre": "Ruta adicional de movimiento no modifica stock",
+      "resultado": "APROBADO",
+      "duracion_ms": 671
+    },
+    {
+      "id": "AU06",
+      "nombre": "Ruta adicional de RFC devuelve 404",
+      "resultado": "APROBADO",
+      "duracion_ms": 229
+    },
+    {
+      "id": "AU07",
+      "nombre": "Contrasena conserva exactamente los espacios",
+      "resultado": "APROBADO",
+      "duracion_ms": 2146
+    },
+    {
+      "id": "AU08",
+      "nombre": "Cambio de clave revoca sesiones y registra bitacora",
+      "resultado": "APROBADO",
+      "duracion_ms": 4537
+    },
+    {
+      "id": "AU09",
+      "nombre": "Desactivar usuario invalida JWT aun vigente",
+      "resultado": "APROBADO",
+      "duracion_ms": 458
+    },
+    {
+      "id": "AU10",
+      "nombre": "Importe fuera de capacidad rechazado sin mutacion",
+      "resultado": "APROBADO",
+      "duracion_ms": 1390
+    },
+    {
+      "id": "AU11",
+      "nombre": "JSON y tipo de contenido invalidos rechazados",
+      "resultado": "APROBADO",
+      "duracion_ms": 688
+    },
+    {
+      "id": "AU12",
+      "nombre": "Cantidad fraccionaria no altera inventario",
+      "resultado": "APROBADO",
+      "duracion_ms": 687
+    },
+    {
+      "id": "AU13",
+      "nombre": "Cabeceras y conciliacion despues de casos adversos",
+      "resultado": "APROBADO",
+      "duracion_ms": 233
+    },
+    {
+      "id": "AU14",
+      "nombre": "Limite de login devuelve 429 y Retry-After",
+      "resultado": "APROBADO",
+      "duracion_ms": 6505
+    }
+  ]
+}
