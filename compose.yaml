@@ -1,0 +1,32 @@
+services:
+  base_datos:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: siscom_db
+      MYSQL_USER: siscom_app
+      MYSQL_PASSWORD: ${SISCOM_DB_CLAVE:?Defina SISCOM_DB_CLAVE}
+      MYSQL_ROOT_PASSWORD: ${SISCOM_MYSQL_ROOT:?Defina SISCOM_MYSQL_ROOT}
+    volumes:
+      - datos_mysql:/var/lib/mysql
+      - ./sql/01_esquema.sql:/docker-entrypoint-initdb.d/01_esquema.sql:ro
+      - ./sql/02_indices_mysql.sql:/docker-entrypoint-initdb.d/02_indices_mysql.sql:ro
+      - ./sql/05_permisos_mysql.sql:/docker-entrypoint-initdb.d/05_permisos_mysql.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  aplicacion:
+    build: .
+    environment:
+      SISCOM_DB_URL: jdbc:mysql://base_datos:3306/siscom_db?connectionTimeZone=America/Lima
+      SISCOM_DB_USUARIO: siscom_app
+      SISCOM_DB_CLAVE: ${SISCOM_DB_CLAVE}
+      SISCOM_JWT_SECRETO: ${SISCOM_JWT_SECRETO:?Defina un secreto de 32 bytes o mas}
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      base_datos:
+        condition: service_healthy
+volumes:
+  datos_mysql:

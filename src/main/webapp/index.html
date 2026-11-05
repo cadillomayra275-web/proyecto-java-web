@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101f31">
+<title>SISCOM · Ventas e inventario</title>
+<link rel="icon" href="assets/isotipo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<main id="acceso" class="acceso">
+<section class="acceso_visual">
+<img class="hero" src="assets/tecnologia.png" alt="Equipos de computo y perifericos de una tienda de tecnologia">
+<div class="visual_contenido"><img src="assets/logo_claro.svg" class="logo_grande" alt="SISCOM"><div><span class="etiqueta">GESTION COMERCIAL</span><h1>Control de tu tienda<br>en cada operacion</h1><p>Ventas conectadas al inventario<br>y cambios con trazabilidad</p></div><span class="version">Avance 3 · Version 3.0.1</span></div>
+</section>
+<section class="acceso_formulario">
+<div class="formulario_acceso"><span class="etiqueta verde">BIENVENIDO A SISCOM</span><h2>Iniciar sesion</h2><p class="muted">Ingresa con tu cuenta de trabajo</p>
+<form id="form_acceso"><label>Correo<input type="email" name="correo" autocomplete="username" placeholder="usuario@siscom.local" required></label><label>Clave<input type="password" name="clave" autocomplete="current-password" required></label><p id="error_acceso" class="error" role="alert"></p><button class="primario ancho" type="submit">Ingresar al sistema <span aria-hidden="true">↗</span></button></form>
+<details class="ayuda_demo"><summary>Acceso de demostracion local</summary><p>Clave para las cuatro cuentas <strong>Siscom2026!</strong></p><p>admin@siscom.local<br>ventas@siscom.local<br>almacen@siscom.local<br>supervisor@siscom.local</p><p>Datos ficticios para la evaluacion del proyecto</p></details>
+<div class="acceso_pie">SISCOM <span>Ventas · Inventario · Cambios</span></div></div>
+</section>
+</main>
+<div id="aplicacion" class="aplicacion oculto">
+<aside id="lateral"><img src="assets/logo_claro.svg" class="logo" alt="SISCOM"><span class="sublogo">CONTROL COMERCIAL</span><nav id="navegacion" aria-label="Navegacion principal"></nav><div class="lateral_pie"><span class="punto"></span> Entorno local<br><small>Datos de demostracion · v3.0.1</small></div></aside>
+<div class="principal"><header class="cabecera"><button class="boton_icono movil" id="menu_movil" aria-label="Abrir menu">☰</button><span id="ruta_actual">Resumen</span><div class="cuenta"><span class="avatar" id="iniciales"></span><div><strong id="nombre_usuario"></strong><small id="rol_usuario"></small></div><button class="boton_icono" id="cambiar_clave" aria-label="Cambiar clave" title="Cambiar clave">⚿</button><button class="salir" id="salir">Salir</button></div></header><main id="contenido" tabindex="-1"></main><footer class="pie">SISCOM <span>Curso Integrador II · Avance de Proyecto Final 3</span></footer></div>
+</div>
+<dialog id="modal"><div class="modal_cabecera"><h2 id="modal_titulo"></h2><button class="boton_icono" id="cerrar_modal" aria-label="Cerrar">×</button></div><div id="modal_cuerpo"></div></dialog>
+<div id="aviso" class="aviso oculto" role="status" aria-live="polite"></div>
+</body>
+</html>

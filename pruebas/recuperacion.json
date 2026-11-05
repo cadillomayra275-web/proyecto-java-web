@@ -1,0 +1,14 @@
+{
+  "fecha": "2026-10-21T19:00:21.663Z",
+  "respaldo": "siscom-1792609220280.zip",
+  "sha256": "3d4550583fd6559df95e37ac5520e10f21f617c8fb6c428ccabff04de1adf8b3",
+  "jar_sha256": "3c3f1aecd6fa3e098f7c76c143c887471a6e80e8e79d861a314ba97e6f379eb7",
+  "restauracion_exit": 0,
+  "verificacion_exit": 0,
+  "duracion_restauracion_y_consulta_segundos": 1.083629,
+  "ventas_recuperadas": 3,
+  "rfc_recuperadas": 5,
+  "discrepancias_stock": 0,
+  "salida": "ventas\n3\n(1 row, 20 ms)\ncambios\n5\n(1 row, 0 ms)\ndiscrepancias\n0\n(1 row, 9 ms)\n",
+  "alcance": "Restauracion y consulta H2 local. No incluye deteccion del incidente ni reapertura. No mide RTO de produccion."
+}

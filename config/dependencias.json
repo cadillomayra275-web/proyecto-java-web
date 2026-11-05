@@ -1,0 +1,32 @@
+[
+  {
+    "archivo": "tomcat-embed-core.jar",
+    "version": "9.0.123",
+    "sha256": "b83d5d966835215ccbb18744b948d17b9da96bc3359d05b23ec00ab3b4d3e04f"
+  },
+  {
+    "archivo": "gson.jar",
+    "version": "2.13.2",
+    "sha256": "dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0"
+  },
+  {
+    "archivo": "h2.jar",
+    "version": "2.2.224",
+    "sha256": "b9d8f19358ada82a4f6eb5b174c6cfe320a375b5a9cb5a4fe456d623e6e55497"
+  },
+  {
+    "archivo": "mysql-connector.jar",
+    "version": "8.4.0",
+    "sha256": "d77962877d010777cff997015da90ee689f0f4bb76848340e1488f2b83332af5"
+  },
+  {
+    "archivo": "jbcrypt.jar",
+    "version": "0.4",
+    "sha256": "e183f6f59404fc1e12073cfea4ace7ea103c900463cd21fb609a7c617ecdf624"
+  },
+  {
+    "archivo": "javax-annotation.jar",
+    "version": "1.3.2",
+    "sha256": "e04ba5195bcd555dc95650f7cc614d151e4bcd52d29a10b8aa2197f3ab89ab9b"
+  }
+]

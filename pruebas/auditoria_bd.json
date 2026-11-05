@@ -1,0 +1,24 @@
+{
+  "fecha": "2026-10-21T18:58:52.576330933Z",
+  "motor": "H2 en memoria",
+  "pruebas": 3,
+  "aprobadas": 3,
+  "resultados": [
+    {
+      "id": "BD01",
+      "nombre": "Alta inicial conserva parametro y evita segundo bootstrap",
+      "resultado": "APROBADO"
+    },
+    {
+      "id": "BD02",
+      "nombre": "Fallo del alta inicial revierte usuario parametro y bitacora",
+      "resultado": "APROBADO"
+    },
+    {
+      "id": "BD03",
+      "nombre": "Restricciones SQL rechazan signo riesgo y version invalidos",
+      "resultado": "APROBADO"
+    }
+  ],
+  "jar_sha256": "3c3f1aecd6fa3e098f7c76c143c887471a6e80e8e79d861a314ba97e6f379eb7"
+}

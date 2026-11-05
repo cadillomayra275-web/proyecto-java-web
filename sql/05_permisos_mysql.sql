@@ -1,0 +1,2 @@
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'siscom_app'@'%';
+GRANT SELECT,INSERT,UPDATE,DELETE ON siscom_db.* TO 'siscom_app'@'%';
